@@ -18,6 +18,7 @@ const KolektaDB={
       t.oncomplete=()=>res(q.result);t.onerror=()=>rej(t.error);t.onabort=()=>rej(t.error)});
   },
   add(item){item.createdAt=Date.now();return this._run('readwrite',s=>s.add(item))},
+  update(item){return this._run('readwrite',s=>s.put(item))},
   getAll(){return this._run('readonly',s=>s.getAll()).then(a=>a.sort((x,y)=>y.createdAt-x.createdAt))},
   get(id){return this._run('readonly',s=>s.get(Number(id)))},
   remove(id){return this._run('readwrite',s=>s.delete(Number(id)))}

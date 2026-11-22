@@ -1,14 +1,10 @@
 {
   "name": "Kolekta",
   "short_name": "Kolekta",
-  "description": "Catat dan kelola koleksi barang Anda",
   "start_url": "pages/dashboard.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#F4F2FB",
-  "theme_color": "#6C4DF6",
-  "lang": "id",
-  "icons": [
-    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
-  ]
+  "background_color": "#0F0C1D",
+  "theme_color": "#0F0C1D",
+  "icons": [{"src": "assets/icon.png", "sizes": "any", "type": "image/png", "purpose": "any"}]
 }

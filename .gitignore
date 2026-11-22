@@ -1,0 +1,22 @@
+# Dependensi
+node_modules/
+
+# Log
+*.log
+npm-debug.log*
+
+# Sistem operasi
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor (hapus baris ini jika ingin membagikan pengaturan VS Code)
+.vscode/
+
+# Rahasia / lingkungan
+.env
+.env.*
+
+# Hasil build / arsip
+dist/
+*.zip

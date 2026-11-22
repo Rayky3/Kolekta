@@ -1,24 +1,49 @@
-/* Kolekta - style.css : token desain, reset, layout dasar (mobile-first) */
-@font-face{font-family:"Conthrax";src:url("../fonts/Conthrax-SemiBold.otf") format("opentype");font-weight:100 900;font-style:normal;font-display:swap}
-@font-face{font-family:"Poppins";src:url("../fonts/Poppins-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Poppins";src:url("../fonts/Poppins-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:"Poppins";src:url("../fonts/Poppins-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:"Poppins";src:url("../fonts/Poppins-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
-:root{--bg:#F4F2FB;--sf:#fff;--ink:#1B1B3A;--mu:#6B6B8A;--pr:#6C4DF6;--prs:#ECE8FF;--ac:#22C7D8;--nv:#1B1F4B;--ln:#E4E1F2;--ph:#D9D3F5;--er:#DC2626;--r:16px;--sh:0 4px 14px rgba(27,27,58,.08);--nav-w:248px;--bar-h:68px}
-@media (prefers-color-scheme:dark){:root{--bg:#12122A;--sf:#1C1C3A;--ink:#F1F0FF;--mu:#A4A3C4;--pr:#8F78FF;--prs:#2A2650;--ln:#2E2D52;--ph:#34305F}}
-*{box-sizing:border-box}
+/* Kolekta - style.css : font, token desain, reset, layout dasar, header, navigasi */
+@font-face{font-family:"Conthrax";src:url("../assets/Conthrax-SemiBold.otf") format("opentype");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../assets/Poppins-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../assets/Poppins-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../assets/Poppins-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../assets/Poppins-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+
+:root{
+  --bg:#0F0C1D;--nav:#171725;--nav-line:#5B5594;
+  --pr:#5B4FD6;--pr2:#8B7CF6;--brand:#6C4DF6;
+  --field:#2C2650;--card:#181528;--line:#221B3A;
+  --txt:#FFFFFF;--mu:#A8A8AD;--link:#3E77DA;--danger:#FF0000;--good:#6EE7A0;
+  --nav-h:86px;--maxw:100%;--hx:48px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Poppins,"Segoe UI",system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px)}
-h1{font-size:22px;margin:0}h2{font-size:17px;margin:0}
+body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.4 Poppins,"Segoe UI",system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px)}
+h1,h2,h3,p{margin:0}
 a{color:inherit;text-decoration:none}
+button,input{font-family:inherit}
 [hidden]{display:none!important}
-.ico{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.main{padding:20px 16px calc(var(--bar-h) + 28px + env(safe-area-inset-bottom,0px));max-width:1240px}
-.page-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
-.back{width:40px;height:40px;border-radius:50%;border:0;background:var(--prs);color:var(--pr);display:grid;place-items:center;cursor:pointer;flex:none}
-.sec-title{margin:24px 0 12px}
-.sec-row{display:flex;justify-content:space-between;align-items:center;margin-top:24px}
-.sec-row .sec-title{margin:0}
-.link{color:var(--pr);font-weight:600;font-size:14px}
-/* Conthrax hanya untuk tulisan "Kolekta" */
-.brand{font-family:Conthrax,Poppins,sans-serif;font-weight:400}
+.ico{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* Tulisan "Kolekta" memakai Conthrax, sisanya Poppins */
+.brand{font-family:Conthrax,Poppins,sans-serif;font-weight:400;color:var(--brand)}
+
+.app{min-height:100vh;min-height:100dvh;padding-bottom:calc(var(--nav-h) + 30px + env(safe-area-inset-bottom,0px))}
+.main{width:100%;max-width:var(--maxw);margin:0 auto}
+
+/* header beranda */
+.home-head{border-bottom:1px solid #fff}
+.home-head-in{max-width:var(--maxw);margin:0 auto;padding:58px 28px 22px}
+.home-head h1{font-size:18px;line-height:1.5;font-weight:600}
+
+/* header halaman lain: tombol kembali di kiri, judul di tengah */
+.page-head{position:relative;display:flex;align-items:center;justify-content:center;min-height:34px;margin-top:56px;padding:0;text-align:center}
+.page-head h1{white-space:nowrap;font-size:20px;font-weight:600;line-height:1.25}
+.back{position:absolute;left:var(--hx);top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;border:0;background:var(--pr);color:#fff;display:grid;place-items:center;cursor:pointer;padding:0}
+.back .ico{width:20px;height:20px;stroke-width:2.4}
+body[data-page=chart]{--hx:43px}
+body[data-page=add],body[data-page=edit]{--hx:59px}
+body[data-page=detail],body[data-page=collection]{--hx:53px}
+
+/* navigasi bawah */
+.nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(100%,640px);height:calc(var(--nav-h) + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);display:flex;justify-content:space-around;align-items:center;background:var(--nav);border-top:1px solid var(--nav-line);border-radius:40px 40px 0 0;z-index:20}
+.nav a{display:grid;place-items:center;width:64px;height:64px;color:var(--mu)}
+.nav a .ico{width:44px;height:44px;stroke-width:1.5}
+.nav a.on{color:#F3F1FF}
+.nav a.on .ico{width:52px;height:52px;stroke-width:2.1}

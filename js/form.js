@@ -7,7 +7,7 @@
   document.getElementById('backBtn').onclick=()=>dirty?confirmLeave('collection.html'):location.href='collection.html';
   window.addEventListener('beforeunload',e=>{if(window.KolektaGuard&&dirty){e.preventDefault();e.returnValue=''}});
   photoBtn.onclick=()=>{
-    const m=Util.modal(`<h2>Pilih Sumber Gambar</h2><div class="src"><button type="button" id="srcCam">${Util.icon('cam')}Kamera</button><button type="button" id="srcGal">${Util.icon('img')}Galeri</button></div>`);
+    const m=Util.modal(`<h2>Pilih Sumber Gambar</h2><button class="src-btn" id="srcCam" type="button"><span class="circ">${Util.icon('cam')}</span>Kamera</button><button class="src-btn" id="srcGal" type="button"><span class="circ">${Util.icon('gal')}</span>Galeri</button>`,true);
     m.el.querySelector('#srcCam').onclick=()=>{m.close();document.getElementById('fileCamera').click()};
     m.el.querySelector('#srcGal').onclick=()=>{m.close();document.getElementById('fileGallery').click()};
   };
@@ -21,7 +21,7 @@
     const d=Object.fromEntries(new FormData(form).entries());
     if(!d.nama.trim()){document.getElementById('errNama').hidden=false;form.nama.focus();return}
     try{
-      await KolektaDB.add({nama:d.nama.trim(),merk:d.merk.trim(),seri:d.seri.trim(),jenis:d.jenis.trim()||'Lainnya',harga:d.harga.replace(/\D/g,''),tanggal:d.tanggal,kondisi:d.kondisi.trim(),tempat:d.tempat.trim(),foto});
+      await KolektaDB.add({nama:d.nama.trim(),merk:d.merk.trim(),seri:d.seri.trim(),jenis:'Lainnya',harga:d.harga.replace(/\D/g,''),tanggal:d.tanggal,kondisi:d.kondisi.trim(),tempat:d.tempat.trim(),foto});
       dirty=false;sessionStorage.setItem('toast','Koleksi berhasil disimpan');location.href='collection.html';
     }catch(err){Util.toast('Gagal menyimpan koleksi')}
   });
