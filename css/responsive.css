@@ -1,0 +1,26 @@
+/* Kolekta - responsive.css : navigasi bawah (mobile) -> sidebar (desktop) */
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-around;align-items:center;height:calc(var(--bar-h) + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);background:var(--sf);border-top:1px solid var(--ln);z-index:20}
+.nav .brand{display:none}
+.nav a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--mu);min-width:64px}
+.nav a.on{color:var(--pr)}
+.nav a.add{width:56px;height:56px;min-width:0;border-radius:50%;background:var(--pr);color:#fff;margin-top:-26px;justify-content:center;box-shadow:var(--sh)}
+.nav a.add span{display:none}
+@media (min-width:600px){.grid{grid-template-columns:repeat(3,1fr)}.fields{grid-template-columns:1fr 1fr}.f.full{grid-column:1/-1}.fields .btn{grid-column:1/-1;justify-self:end}}
+@media (min-width:900px){
+ .nav{top:0;bottom:auto;right:auto;width:var(--nav-w);height:100vh;flex-direction:column;justify-content:flex-start;align-items:stretch;gap:6px;padding:28px 16px;background:var(--nv);border:0}
+ .nav .brand{display:block;color:#fff;font-size:24px;font-weight:700;padding:0 12px 22px}
+ .nav a{flex-direction:row;gap:12px;padding:12px;border-radius:12px;font-size:15px;color:#C9C8EA}
+ .nav a:hover{background:rgba(255,255,255,.08)}
+ .nav a.on,.nav a.add.on{background:var(--pr);color:#fff}
+ .nav a.add{width:auto;height:auto;border-radius:12px;background:none;margin:0;box-shadow:none;color:#C9C8EA;justify-content:flex-start}
+ .nav a.add span{display:inline}
+ .main{margin-left:var(--nav-w);padding:32px 40px 48px}
+ h1{font-size:26px}
+ .stats{grid-template-columns:repeat(4,1fr);gap:16px}.stat{padding:20px}
+ .recent{grid-template-columns:1fr 1fr;gap:16px}
+ .grid{grid-template-columns:repeat(4,1fr);gap:20px}.gcard .thumb{height:150px}
+ .split{grid-template-columns:380px 1fr;gap:32px}.photo,.photo-view{height:340px}
+ .fields{padding:28px;gap:18px 20px}
+ .chart-grid{grid-template-columns:1.6fr 1fr;gap:20px}.chart-card{padding:24px}.chart-card svg{height:240px}
+ .toast{bottom:28px}
+}

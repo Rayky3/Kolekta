@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kolekta – Tambah Koleksi</title>
+<meta name="theme-color" content="#6C4DF6">
+<link rel="manifest" href="../manifest.json">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-page="add"><div class="app"><nav id="nav"></nav><main class="main">
+<header class="page-head"><button class="back" id="backBtn" type="button" aria-label="Kembali"><svg class="ico" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><h1>Add Your Collection</h1></header>
+<form id="form" class="split" novalidate>
+  <button type="button" class="photo" id="photoBtn"><span class="inner"><svg class="ico" viewBox="0 0 24 24"><path d="M4 8h4l2-3h4l2 3h4v11H4zM12 17a3.5 3.5 0 100-7 3.5 3.5 0 000 7z"/></svg>Ambil Foto Koleksi</span></button>
+  <div class="card fields">
+    <label class="f full">Nama<input name="nama" placeholder="Masukkan nama koleksi..." autocomplete="off"><small class="err" id="errNama" hidden>Nama koleksi wajib diisi</small></label>
+    <label class="f">Merk<input name="merk" placeholder="Masukkan merk koleksi..."></label>
+    <label class="f">Seri (Jika ada)<input name="seri" placeholder="Masukkan seri koleksi..."></label>
+    <label class="f">Jenis Koleksi<input name="jenis" list="jenisList" placeholder="Contoh: Action Figure"><datalist id="jenisList"><option value="Action Figure"><option value="Kartu Koleksi"><option value="Model Kit"><option value="Buku atau Komik"><option value="Lainnya"></datalist></label>
+    <label class="f">Harga Beli (Rp)<input name="harga" inputmode="numeric" placeholder="Masukkan harga beli..."></label>
+    <label class="f">Tanggal Beli<input name="tanggal" type="date"></label>
+    <label class="f">Kondisi<input name="kondisi" placeholder="Masukkan kondisi koleksi..."></label>
+    <label class="f">Tempat Beli<input name="tempat" placeholder="Masukkan tempat beli..."></label>
+    <button class="btn" type="submit">SIMPAN KOLEKSI</button>
+  </div>
+</form>
+<input type="file" id="fileGallery" accept="image/*" hidden><input type="file" id="fileCamera" accept="image/*" capture="environment" hidden>
+</main></div>
+<script src="../js/storage.js"></script>
+<script src="../js/database.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/crop.js"></script>
+<script src="../js/form.js"></script>
+<script src="../js/app.js"></script>
+</body></html>

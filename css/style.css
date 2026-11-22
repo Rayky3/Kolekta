@@ -1,0 +1,24 @@
+/* Kolekta - style.css : token desain, reset, layout dasar (mobile-first) */
+@font-face{font-family:"Conthrax";src:url("../fonts/Conthrax-SemiBold.otf") format("opentype");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../fonts/Poppins-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../fonts/Poppins-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../fonts/Poppins-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../fonts/Poppins-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+:root{--bg:#F4F2FB;--sf:#fff;--ink:#1B1B3A;--mu:#6B6B8A;--pr:#6C4DF6;--prs:#ECE8FF;--ac:#22C7D8;--nv:#1B1F4B;--ln:#E4E1F2;--ph:#D9D3F5;--er:#DC2626;--r:16px;--sh:0 4px 14px rgba(27,27,58,.08);--nav-w:248px;--bar-h:68px}
+@media (prefers-color-scheme:dark){:root{--bg:#12122A;--sf:#1C1C3A;--ink:#F1F0FF;--mu:#A4A3C4;--pr:#8F78FF;--prs:#2A2650;--ln:#2E2D52;--ph:#34305F}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Poppins,"Segoe UI",system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px)}
+h1{font-size:22px;margin:0}h2{font-size:17px;margin:0}
+a{color:inherit;text-decoration:none}
+[hidden]{display:none!important}
+.ico{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.main{padding:20px 16px calc(var(--bar-h) + 28px + env(safe-area-inset-bottom,0px));max-width:1240px}
+.page-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.back{width:40px;height:40px;border-radius:50%;border:0;background:var(--prs);color:var(--pr);display:grid;place-items:center;cursor:pointer;flex:none}
+.sec-title{margin:24px 0 12px}
+.sec-row{display:flex;justify-content:space-between;align-items:center;margin-top:24px}
+.sec-row .sec-title{margin:0}
+.link{color:var(--pr);font-weight:600;font-size:14px}
+/* Conthrax hanya untuk tulisan "Kolekta" */
+.brand{font-family:Conthrax,Poppins,sans-serif;font-weight:400}

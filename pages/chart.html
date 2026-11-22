@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kolekta – Grafik</title>
+<meta name="theme-color" content="#6C4DF6">
+<link rel="manifest" href="../manifest.json">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-page="chart"><div class="app"><nav id="nav"></nav><main class="main">
+<header class="page-head"><a class="back" href="dashboard.html" aria-label="Kembali"><svg class="ico" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a><h1>Collection Chart</h1></header>
+<div class="card chips" id="chips"><button data-r="7">7H</button><button data-r="30" class="on">1B</button><button data-r="90">3B</button><button data-r="365">1T</button></div>
+<div class="chart-grid">
+  <section class="card chart-card"><span class="lb">Item tersimpan</span>
+    <div><span class="big" id="total">0</span><span class="badge" id="growth">Baru</span></div>
+    <span class="lb" id="last30"></span>
+    <svg id="svg" viewBox="0 0 600 200" preserveAspectRatio="none" role="img" aria-label="Grafik pertumbuhan koleksi"></svg>
+    <div class="xl" id="xl"></div></section>
+  <section class="card chart-card"><h2>Berdasarkan jenis</h2><div id="byJenis"></div></section>
+</div>
+</main></div>
+<script src="../js/storage.js"></script>
+<script src="../js/database.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/chart.js"></script>
+<script src="../js/app.js"></script>
+</body></html>
