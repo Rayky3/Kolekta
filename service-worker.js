@@ -1,6 +1,6 @@
 /* Kolekta - service-worker.js : network-first, cache sebagai cadangan offline */
-const CACHE='kolekta-v11';
-const FILES=['./','index.html','manifest.json','assets/icon.png','assets/Conthrax-SemiBold.otf','assets/Poppins-Regular.ttf','assets/Poppins-Medium.ttf','assets/Poppins-SemiBold.ttf','assets/Poppins-Bold.ttf',
+const CACHE='kolekta-v12';
+const FILES=['./','index.html','manifest.json','assets/icon.png','assets/fonts/Conthrax-SemiBold.otf','assets/fonts/Poppins-Regular.ttf','assets/fonts/Poppins-Medium.ttf','assets/fonts/Poppins-SemiBold.ttf','assets/fonts/Poppins-Bold.ttf',
 'css/style.css','css/components.css','css/responsive.css',
 'js/storage.js','js/database.js','js/navigation.js','js/app.js','js/crop.js','js/form.js','js/collection.js','js/dashboard.js','js/chart.js','js/edit.js',
 'pages/dashboard.html','pages/add-collection.html','pages/collection.html','pages/detail-collection.html','pages/chart.html','pages/edit-collection.html'];

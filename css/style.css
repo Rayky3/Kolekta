@@ -1,9 +1,9 @@
 /* Kolekta - style.css : font, token desain, reset, layout dasar, header, navigasi */
-@font-face{font-family:"Conthrax";src:url("../assets/Conthrax-SemiBold.otf") format("opentype");font-weight:100 900;font-style:normal;font-display:swap}
-@font-face{font-family:"Poppins";src:url("../assets/Poppins-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Poppins";src:url("../assets/Poppins-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:"Poppins";src:url("../assets/Poppins-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:"Poppins";src:url("../assets/Poppins-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Conthrax";src:url("../assets/fonts/Conthrax-SemiBold.otf") format("opentype");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../assets/fonts/Poppins-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../assets/fonts/Poppins-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../assets/fonts/Poppins-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../assets/fonts/Poppins-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
 
 :root{
   --bg:#0F0C1D;--nav:#171725;--nav-line:#5B5594;
