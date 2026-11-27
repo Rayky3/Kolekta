@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="id"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kolekta – Grafik</title>
+<title>Kolekta – Statistik</title>
 <meta name="theme-color" content="#0F0C1D">
 <link rel="icon" type="image/png" href="../assets/icon.png">
 <link rel="manifest" href="../manifest.json">
@@ -10,15 +10,25 @@
 <link rel="stylesheet" href="../css/responsive.css">
 </head>
 <body data-page="chart"><div class="app"><nav id="nav"></nav><main class="main">
-<header class="page-head"><a class="back" href="dashboard.html" aria-label="Kembali"><svg class="ico" viewBox="0 0 24 24"><path d="M12.5 6l-6 6 6 6M19 6l-6 6 6 6"/></svg></a><h1>Collection Chart</h1></header>
-<div class="seg" id="chips"><button data-r="7">7H</button><button data-r="30" class="on">1B</button><button data-r="90">3B</button><button data-r="365">1T</button></div>
+<header class="page-head"><a class="back" href="dashboard.html" aria-label="Kembali"><svg class="ico" viewBox="0 0 24 24"><path d="M12.5 6l-6 6 6 6M19 6l-6 6 6 6"/></svg></a><h1>Statistik</h1></header>
+<div class="tabs-row">
+  <div class="seg"><a class="on" href="chart.html">Koleksi</a><a href="expense.html">Pengeluaran</a></div>
+  <div class="seg" id="chips"><button data-r="7">7H</button><button data-r="30" class="on">1B</button><button data-r="90">3B</button><button data-r="365">1T</button></div>
+</div>
 <div class="chart-grid">
-  <section class="chart-card"><span class="lb">Item tersimpan</span>
-    <div><span class="big" id="total">0</span><span class="badge" id="growth">Baru</span></div>
-    <span class="lb" id="last30"></span>
-    <svg id="svg" role="img" aria-label="Grafik pertumbuhan koleksi"></svg>
-    <div class="xl" id="xl"></div></section>
-  <section class="chart-card bytype"><h2>Berdasarkan jenis</h2><div id="byJenis"></div></section>
+  <div class="chart-col">
+    <section class="chart-card"><span class="lb">Item tersimpan</span>
+      <div><span class="big" id="total">0</span><span class="badge" id="growth">Baru</span></div>
+      <span class="lb" id="last30"></span>
+      <svg id="svg" role="img" aria-label="Grafik pertumbuhan koleksi"></svg>
+      <div class="xl" id="xl"></div></section>
+    <div class="kpis">
+      <div class="kpi"><b id="kKat">0</b><span>Kategori</span></div>
+      <div class="kpi"><b id="kFoto">0%</b><span>Punya foto</span></div>
+      <div class="kpi"><b id="kBaru">0</b><span>Baru 30 hari</span></div>
+    </div>
+  </div>
+  <section class="chart-card bytype"><h2>Berdasarkan kategori</h2><div id="byJenis"></div></section>
 </div>
 </main></div>
 <script src="../js/storage.js"></script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kolekta – Statistik Pengeluaran</title>
+<meta name="theme-color" content="#0F0C1D">
+<link rel="icon" type="image/png" href="../assets/icon.png">
+<link rel="manifest" href="../manifest.json">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-page="expense"><div class="app"><nav id="nav"></nav><main class="main">
+<header class="page-head"><a class="back" href="dashboard.html" aria-label="Kembali"><svg class="ico" viewBox="0 0 24 24"><path d="M12.5 6l-6 6 6 6M19 6l-6 6 6 6"/></svg></a><h1>Statistik</h1></header>
+<div class="tabs-row">
+  <div class="seg"><a href="chart.html">Koleksi</a><a class="on" href="expense.html">Pengeluaran</a></div>
+</div>
+<div class="chart-grid">
+  <div class="chart-col">
+    <div class="exp-kpis">
+      <section class="xk main"><small>Total pengeluaran</small><b id="totalExp">Rp0</b><small id="since"></small></section>
+      <section class="xk sub"><small class="mu">Pengeluaran bulan ini</small><b id="monthExp">Rp0</b><small id="delta"></small></section>
+    </div>
+    <section class="chart-card"><div class="sr"><h2>Pengeluaran bulanan</h2><span class="lb">6 bulan</span></div><div class="mbars" id="mbars"></div></section>
+  </div>
+  <section class="chart-card bytype"><h2>Rincian per kategori</h2><div id="byKat"></div></section>
+</div>
+<section class="chart-card hist">
+  <div class="sr" style="margin-bottom:10px"><h2>Riwayat transaksi</h2><button class="linkbtn" id="moreTx" type="button" hidden>Lihat Semua</button></div>
+  <div id="history"></div>
+</section>
+</main></div>
+<script src="../js/storage.js"></script>
+<script src="../js/database.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/expense.js"></script>
+<script src="../js/app.js"></script>
+</body></html>

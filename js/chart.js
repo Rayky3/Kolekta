@@ -1,14 +1,18 @@
-/* Kolekta - chart.js : grafik pertumbuhan koleksi dan rekap per jenis */
+/* Kolekta - chart.js : statistik koleksi (grafik pertumbuhan, angka ringkas, rekap per kategori) */
 (async()=>{
   const items=await KolektaDB.getAll(),DAY=864e5,now=Date.now();
   const total=items.length,last30=items.filter(i=>now-i.createdAt<=30*DAY).length,before=total-last30;
   document.getElementById('total').textContent=total;
   document.getElementById('growth').textContent=before>0?'+'+Math.round(last30/before*100)+'%':'Baru';
   document.getElementById('last30').textContent=`+${last30} item dalam 30 hari terakhir`;
-  const SHADES=['#8B5CF6','#A78BFA','#C4B5FD','#DDD6FE'];
+  const SHADES=['#8B7CF6','#A78BFA','#C4B5FD','#DDD6FE','#A8A8AD'];
   const byJenis={};items.forEach(i=>{const k=i.jenis||'Lainnya';byJenis[k]=(byJenis[k]||0)+1});
   const rows=Object.entries(byJenis).sort((a,b)=>b[1]-a[1]),max=rows[0]?rows[0][1]:1;
-  document.getElementById('byJenis').innerHTML=rows.length?rows.map(([k,n],i)=>`<div class="bl"><span>${Util.esc(k)}</span><b>${n}</b></div><div class="bar"><i style="width:${n/max*100}%;background:${SHADES[Math.min(i,3)]}"></i></div>`).join(''):'<p class="lb" style="margin-top:12px">Belum ada data.</p>';
+  document.getElementById('byJenis').innerHTML=rows.length?rows.map(([k,n],i)=>`<div class="bl"><span>${Util.esc(k)}</span><b>${n} item · ${Math.round(n/total*100)}%</b></div><div class="bar"><i style="width:${n/max*100}%;background:${SHADES[Math.min(i,4)]}"></i></div>`).join(''):'<p class="lb" style="margin-top:12px">Belum ada data.</p>';
+  const foto=items.filter(i=>i.foto).length;
+  document.getElementById('kKat').textContent=rows.length;
+  document.getElementById('kFoto').textContent=total?Math.round(foto/total*100)+'%':'0%';
+  document.getElementById('kBaru').textContent=last30;
 
   let range=30,pts=[];
   /* kurva halus Catmull-Rom -> bezier */

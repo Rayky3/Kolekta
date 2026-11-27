@@ -1,4 +1,5 @@
 /* Kolekta - storage.js : fungsi bantu (format, ikon, dialog, toast) */
+const KATEGORI=['Action Figure','Kartu Koleksi','Model Kit','Buku atau Komik','Diecast','Lainnya'];
 const ICONS={
   home:'<path d="M4 20.5v-9.2L12 4l8 7.3v9.2h-5.2v-5.2a2.8 2.8 0 0 0-5.6 0v5.2z"/>',
   stack:'<path d="M8.5 3.5h8a3 3 0 0 1 3 3V16"/><path d="M4.5 7.5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1V21l-5-3.5L4.5 21z"/><path d="M7.5 10.5h4"/>',
@@ -14,15 +15,27 @@ const ICONS={
   gal:'<rect x="4" y="5" width="16" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.5"/><path d="M4 16.5l5-5 4 4 3-3 4 4"/>',
   back:'<path d="M12.5 6l-6 6 6 6M19 6l-6 6 6 6"/>',
   rotate:'<rect x="7" y="4" width="10" height="16" rx="2.5"/><path d="M4 8.5c-1 1.2-1 5.8 0 7M20 8.5c1 1.2 1 5.8 0 7"/>',
-  crop:'<path d="M7 3v14h14M3 7h14v14"/>'
+  crop:'<path d="M7 3v14h14M3 7h14v14"/>',
+  chev:'<path d="M9 6l6 6-6 6"/>',
+  check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>'
 };
 const MONTHS=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
 const Util={
   icon:n=>`<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n]}</svg>`,
   esc:s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),
   rupiah:v=>'Rp'+Number(String(v||'0').replace(/\D/g,'')||0).toLocaleString('id-ID')+',00',
+  rp:v=>'Rp'+(Number(String(v||'0').replace(/\D/g,''))||0).toLocaleString('id-ID'),
+  juta:v=>v>=1e6?(v/1e6).toFixed(2).replace('.',',')+'jt':v>=1e3?Math.round(v/1e3)+'rb':v?String(v):'0',
   tgl:s=>{if(!s)return '-';const [y,m,d]=s.split('-');return `${d}/${m}/${y}`},
   shortDate:t=>{const d=new Date(t);return `${d.getDate()} ${MONTHS[d.getMonth()]}`},
+  longDate:t=>{const d=new Date(t);return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`},
+  /* tanggal transaksi: tanggal beli, kalau kosong pakai tanggal koleksi ditambahkan */
+  dateOf:i=>i.tanggal?new Date(i.tanggal+'T00:00:00').getTime():i.createdAt,
+  /* isi <select> kategori */
+  kategoriOptions(sel,extra){
+    const l=(!extra||KATEGORI.includes(extra))?KATEGORI:[...KATEGORI,extra];
+    sel.innerHTML='<option value="">Pilih kategori...</option>'+l.map(k=>`<option>${Util.esc(k)}</option>`).join('');
+  },
   /* foto koleksi; kalau belum ada foto, kotak abu-abu seperti di desain */
   photo:item=>item.foto?`<img src="${URL.createObjectURL(item.foto)}" alt="${Util.esc(item.nama)}">`:'',
   modal(html,sheet){

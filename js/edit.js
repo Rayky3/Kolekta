@@ -10,7 +10,8 @@
   window.KolektaGuard=()=>dirty;
 
   /* isi form dengan data lama */
-  ['nama','merk','seri','harga','tanggal','kondisi','tempat'].forEach(k=>{form[k].value=item[k]||''});
+  Util.kategoriOptions(form.jenis,item.jenis);
+  ['nama','jenis','merk','seri','harga','tanggal','kondisi','tempat'].forEach(k=>{form[k].value=item[k]||''});
   if(foto)photoBtn.innerHTML=`<img src="${URL.createObjectURL(foto)}" alt="Foto koleksi">`;
 
   form.addEventListener('input',()=>{dirty=true;document.getElementById('errNama').hidden=true});
@@ -33,7 +34,7 @@
     const d=Object.fromEntries(new FormData(form).entries());
     if(!d.nama.trim()){document.getElementById('errNama').hidden=false;form.nama.focus();return}
     try{
-      await KolektaDB.update({...item,nama:d.nama.trim(),merk:d.merk.trim(),seri:d.seri.trim(),harga:d.harga.replace(/\D/g,''),tanggal:d.tanggal,kondisi:d.kondisi.trim(),tempat:d.tempat.trim(),foto});
+      await KolektaDB.update({...item,nama:d.nama.trim(),jenis:d.jenis||item.jenis||'Lainnya',merk:d.merk.trim(),seri:d.seri.trim(),harga:d.harga.replace(/\D/g,''),tanggal:d.tanggal,kondisi:d.kondisi.trim(),tempat:d.tempat.trim(),foto});
       dirty=false;sessionStorage.setItem('toast','Perubahan berhasil disimpan');location.href=back;
     }catch(err){Util.toast('Gagal menyimpan perubahan')}
   });
